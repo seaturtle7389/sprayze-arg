@@ -1,0 +1,12 @@
+<h1 class="my-3 font-medium leading-tight text-2xl mb-2"><%= @sprayzecoin.name %></h1>
+<% if current_user && current_user.sprayze_member %>
+  <%= line_chart sprayzecoin_chart_path, xtitle: "Time", ytitle: "Value (USD)", prefix: "$", discrete: true %>
+<% elsif current_user %>
+  <p>
+    Please log in with a Sprayze-affiliated Discord account to view this page.
+  </p>
+<% else %>
+  <p>
+    Please log in to view this page.
+  </p>
+<% end %>

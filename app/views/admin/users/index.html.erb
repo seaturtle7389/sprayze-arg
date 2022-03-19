@@ -1,0 +1,25 @@
+<h1 class="my-3 font-medium leading-tight text-2xl mb-2">Users</h1>
+
+<div class="flex flex-col">
+  <div class="w-full">
+    <div class="border-b border-gray-200 shadow">
+      <table class="table-auto divide-y divide-gray-300 w-full">
+        <thead class="bg-gray-50">
+          <tr>
+            <th class="px-6 py-2 text-xs text-gray-500">Username</th>
+            <th class="px-6 py-2 text-xs text-gray-500">Email</th>
+            <th class="px-6 py-2 text-xs text-gray-500">Sprayze?</th>
+            <th class="px-6 py-2 text-xs text-gray-500">Admin?</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-300">
+          <% @users.each do |user| %>
+            <%= render 'user_row', user: user %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

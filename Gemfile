@@ -53,6 +53,15 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end
 
+gem 'devise'
+gem 'meta-tags'
+gem 'kaminari'
+gem 'omniauth-discord'
+gem "omniauth-rails_csrf_protection"
+gem "tailwindcss-rails", "~> 2.0"
+gem "httparty"
+gem "chartkick"
+
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
@@ -70,3 +79,4 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+

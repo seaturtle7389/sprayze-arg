@@ -1,0 +1,39 @@
+<h1 class="my-3 font-medium leading-tight text-2xl mb-2">
+  <%= @sprayzecoin.name %> Information
+  <%= link_to edit_admin_crypto_coin_path(@sprayzecoin) do %>
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-400 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+    </svg>
+  <% end %>
+</h1>
+<div>
+  1 <%= @sprayzecoin.name %> = <%= @sprayzecoin.value %> USD
+</div>
+<div>
+  Growth Rate: <%= format_growth_rate(@sprayzecoin.growth_rate) %>
+</div>
+
+<h2 class="mt-3 mb-1 font-medium leading-tight text-xl">Past Growth</h2>
+<div class="flex flex-col">
+  <div class="w-full">
+    <div class="border-b border-gray-200 shadow">
+      <table class="table-auto divide-y divide-gray-300 w-full">
+        <thead class="bg-gray-50">
+          <tr>
+            <th class="px-6 py-2 text-xs text-gray-500">Date</th>
+            <th class="px-6 py-2 text-xs text-gray-500">Amount</th>
+            <th class="px-6 py-2 text-xs text-gray-500">New <%= @sprayzecoin.name %> Value</th>
+            <th class="px-6 py-2 text-xs text-gray-500">Created By</th>
+          </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-300">
+          <% @value_adjustments.each do |adjustment| %>
+            <%= render 'adjustment_row', adjustment: adjustment %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<%= paginate @value_adjustments %>
